@@ -862,11 +862,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 2af2c50a-c75a-4149-b9ef-e5a1f3759fe5
+  cloudProjectId: 60c33e70-cf3c-4eac-a53a-ecd4b55e0509
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: Firesim_Login_project
-  organizationId: dhinesh_moorthy
+  organizationId: iitmtouchlab
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 

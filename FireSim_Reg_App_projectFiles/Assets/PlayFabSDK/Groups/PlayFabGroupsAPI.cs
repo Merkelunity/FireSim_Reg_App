@@ -47,6 +47,11 @@ namespace PlayFab
             PlayFabHttp.MakeApiCall("/Group/AcceptGroupApplication", request, AuthType.EntityToken, resultCallback, errorCallback, customData, extraHeaders, context, callSettings);
         }
 
+        public static void AcceptGroupInvitation(InviteToGroupRequest request, Action<EmptyResponse> onsuccess, Action<PlayFabError> onerror)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Accepts an invitation to join a group
         /// </summary>

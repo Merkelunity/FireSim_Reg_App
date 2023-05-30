@@ -1,14 +1,10 @@
 using PlayFab;
 using PlayFab.ClientModels;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Events;
 using Newtonsoft.Json;
 using DG.Tweening;
-
-
 public class Playfab_manager : MonoBehaviour
 {
     string password;
@@ -37,7 +33,6 @@ public class Playfab_manager : MonoBehaviour
         index = 0;
         circleSlider.gameObject.SetActive(false);
     }
-
     
     #region globalError
 
