@@ -5,6 +5,7 @@ using PlayFab.ClientModels;
 using System;
 using EntityKey = PlayFab.GroupsModels.EntityKey;
 
+//hello world
 public class MyPlayfabTestArea : MonoBehaviour
 {
     string entityId;
@@ -30,7 +31,10 @@ public class MyPlayfabTestArea : MonoBehaviour
     void onloginsuccess(LoginResult result)
     {
         Debug.Log("login success");
-        getGroup();
+        //createGroup();
+        //getGroup();
+        //listMembership();
+        listGroupMembers("6D551141BDD75B4");
     }
 
 
@@ -48,7 +52,7 @@ public class MyPlayfabTestArea : MonoBehaviour
     }
     void createGroupSuccess(CreateGroupResponse response)
     {
-        Debug.Log(response);
+        Debug.Log(response.GroupName + "created");
     }
 
     #endregion
@@ -117,7 +121,7 @@ public class MyPlayfabTestArea : MonoBehaviour
     {
         var request = new GetGroupRequest()
         {
-            GroupName = "TestGroup"
+            GroupName = "MyGroupTest"
         };
         PlayFabGroupsAPI.GetGroup(request, ons, onerror);
     }
@@ -141,7 +145,7 @@ public class MyPlayfabTestArea : MonoBehaviour
     {
         var request = new ListGroupMembersRequest()
         {
-            Group = s
+            Group = s.ToString()
         };
         PlayFabGroupsAPI.ListGroupMembers(request, onsu, onerror);
     }
@@ -165,6 +169,7 @@ public class MyPlayfabTestArea : MonoBehaviour
                 Id = eID,
                 Type = eTYPE
             }
+            
         };
         PlayFabGroupsAPI.ListMembership(request, onlistsuccess, onerror);
     }
