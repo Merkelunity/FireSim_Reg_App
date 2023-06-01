@@ -20,8 +20,8 @@ public class CanvasSampleOpenFileText : MonoBehaviour, IPointerDownHandler {
 
     public static CanvasSampleOpenFileText instance;
     public Slider Reg_slider;
-    public TextMeshProUGUI debug_Text;
-    string filename;
+    //public TextMeshProUGUI debug_Text;
+    //string filename;
 
     public int numberOfNewRegister;
 
@@ -30,6 +30,7 @@ public class CanvasSampleOpenFileText : MonoBehaviour, IPointerDownHandler {
     public List<string> OrgName;
     public List<long> mobileNumber;
     public List<string> emailAddress;
+    public List<string> trainerName;
     //public TextMeshProUGUI text;
 
 
@@ -101,6 +102,7 @@ public class CanvasSampleOpenFileText : MonoBehaviour, IPointerDownHandler {
         emailAddress.Clear();
         mobileNumber.Clear();
         OrgName.Clear();
+        trainerName.Clear();
         StreamReader strReader = new StreamReader(paths[0]);
         bool endofFile = false;
         while (!endofFile)
@@ -123,6 +125,8 @@ public class CanvasSampleOpenFileText : MonoBehaviour, IPointerDownHandler {
                 emailAddress.Add(val[3]);//emailaddress
             if (OrgName.Count >= 0) 
                 OrgName.Add(val[4]);//orgname
+            if (trainerName.Count >= 0)
+                trainerName.Add(val[5]);
 
 
             numberOfNewRegister++;

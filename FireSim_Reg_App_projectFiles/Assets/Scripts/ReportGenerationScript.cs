@@ -22,6 +22,7 @@ public class ReportGenerationScript : MonoBehaviour
     public GameObject canGenerateReportPanel;
     public GameObject NAreportPanel;
     public GameObject dataFetchPanel;
+    public GameObject pathEmptyPanel;
 
     public Ease ease;
     public float timeofdisplay;
@@ -66,18 +67,20 @@ public class ReportGenerationScript : MonoBehaviour
     [HideInInspector]
     public int index = 0;
     public string[] paths;
-
+    string filepath;
     public void openFolderdir()
     {
         paths = StandaloneFileBrowser.OpenFolderPanel("Select Folder", Application.dataPath, true);
         fileSaveText.text = "Files will be saved to " + paths[0];
         Debug.Log(paths[0].ToString());
+        filepath = paths[0];
     }
 
     private void Awake()
     {
         //paths[0] = "";
         instance = this;
+
     }
 
     private void Start()
@@ -86,23 +89,7 @@ public class ReportGenerationScript : MonoBehaviour
         index = 0;
         loginErrorPanel.gameObject.SetActive(false);
     }
-    //void testFunction()
-    //{
-    //    //var request = new GetGroupRequest
-    //    //{
-    //    //    GroupName = "TestGroup"
-    //    //};
-    //    //PlayFabGroupsAPI.GetGroup(request, resulCallback, onerror);
-    //    var request = new ListGroupMembersRequest
-    //    {
-    //        Group = EntityKey("106BEBC7838C18C8", "	TestGroup")
-    //    };
-    //    PlayFabGroupsAPI.ListGroupMembers(request, resulCallback, onerror);
-    //}
-    //void resulCallback(ListGroupMembersResponse response)
-    //{
-    //    Debug.Log(response.Request);
-    //}
+
     //BTN
     public void loginNextUser()
     {
@@ -114,16 +101,28 @@ public class ReportGenerationScript : MonoBehaviour
     {
         loginNextUser();
         certificate_login = CanvasSampleOpenFileText.instance.empID[index];
-
+        trainerString = CanvasSampleOpenFileText.instance.trainerName[index];
         loginPlayer(certificate_login.ToString());
     }
+    //BTN
     public void certificate_generate_1()
     {
-        bulk = false;
-        single = true;
-        trainerString = trainerName.text.ToString();
-        certificate_login = cert_emp_ID.text;
-        loginPlayer(certificate_login.ToString());
+        if (System.String.IsNullOrEmpty(filepath))
+        {
+            Debug.Log("path is empty");
+            //alert the user
+            pathEmptyPanel.gameObject.SetActive(true);
+            pathEmptyPanel.gameObject.transform.DOLocalMoveY(-300, timeofdisplay).SetEase(ease).
+                OnComplete(() => f1(pathEmptyPanel));
+        }
+        else
+        {
+            bulk = false;
+            single = true;
+            trainerString = trainerName.text.ToString();
+            certificate_login = cert_emp_ID.text;
+            loginPlayer(certificate_login.ToString());
+        }
     }
     #region ERROR
 
@@ -346,12 +345,15 @@ public class ReportGenerationScript : MonoBehaviour
             //PrintingManager_Final.instance.GenerateFile();
             //dataFetchPanel.gameObject.SetActive(true);
             //dataFetchPanel.gameObject.transform.DOLocalMoveY(-300, timeofdisplay).SetEase(ease).
-            //OnComplete(() => f2(dataFetchPanel)).OnComplete(() => PrintingManager.instance.GenerateFile());
+            //    OnComplete(() => f2(dataFetchPanel));
 
 
         }
     }
 
+
+
+    #endregion
 
 
     #endregion
@@ -369,12 +371,14 @@ public class ReportGenerationScript : MonoBehaviour
         {
             Debug.Log("list over");
             index = 0;
+            dataFetchPanel.gameObject.SetActive(true);
+            dataFetchPanel.gameObject.transform.DOLocalMoveY(-300, timeofdisplay).SetEase(ease).
+                OnComplete(() => f1(dataFetchPanel));
         }
         checkbool = false;
         PlayFabClientAPI.ForgetAllCredentials();
-    }
 
-    #endregion
+    }
 
     #endregion
 

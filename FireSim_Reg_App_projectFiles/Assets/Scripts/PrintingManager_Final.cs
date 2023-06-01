@@ -107,6 +107,8 @@ public class PrintingManager_Final : MonoBehaviour
             document.Add(spacing);
 
             Paragraph r = new Paragraph("TRAINER : " + ReportGenerationScript.instance.trainerString.ToString());
+            //Paragraph r = new Paragraph("TRAINER : " + CanvasSampleOpenFileText.instance.trainerName[].ToString());
+
             r.Alignment = Element.ALIGN_RIGHT;
             document.Add(r);
 
