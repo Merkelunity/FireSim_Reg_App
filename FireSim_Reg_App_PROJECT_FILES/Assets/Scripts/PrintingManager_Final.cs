@@ -168,7 +168,7 @@ public class PrintingManager_Final : MonoBehaviour
                         testClass1.distanceScoreVal,
                         testClass1.timeScoreVal,
                     };
-                AddScenarioDetails(document, "Scenario - Industrial kitchen", "Class - K", "Max Score - 100", testClass1.totalScoreVal , testClass1.dateTime);
+                AddScenarioDetails(document, "Scenario - Industrial kitchen", "Class - K", "Max Score - 100", testClass1.totalScoreVal,testClass1.dateTime);
 
                 document.Add(spacing);
 
@@ -207,7 +207,7 @@ public class PrintingManager_Final : MonoBehaviour
                         testClass1.timeScoreVal,
                     };
 
-                AddScenarioDetails(document, "Scenario - Lab", "Class - D", "Max Score - 100", testClass1.totalScoreVal, testClass1.dateTime);
+                AddScenarioDetails(document, "Scenario - Lab", "Class - D", "Max Score - 100", testClass1.totalScoreVal,testClass1.dateTime);
 
                 document.Add(spacing);
 
@@ -248,7 +248,7 @@ public class PrintingManager_Final : MonoBehaviour
                         testClass1.timeScoreVal,
                     };
 
-                AddScenarioDetails(document, "Scenario - Office", "Class - A", "Max Score - 100", testClass1.totalScoreVal, testClass1.dateTime);
+                AddScenarioDetails(document, "Scenario - Office", "Class - A", "Max Score - 100", testClass1.totalScoreVal,testClass1.dateTime);
 
                 document.Add(spacing);
 
@@ -292,7 +292,7 @@ public class PrintingManager_Final : MonoBehaviour
                     };
 
 
-                AddScenarioDetails(document, "Scenario - Office", "Class - C", "Max Score - 100", testClass1.totalScoreVal, testClass1.dateTime);
+                AddScenarioDetails(document, "Scenario - Office", "Class - C", "Max Score - 100", testClass1.totalScoreVal,testClass1.dateTime);
 
                 document.Add(spacing);
 
@@ -334,7 +334,7 @@ public class PrintingManager_Final : MonoBehaviour
                     };
 
 
-                AddScenarioDetails(document, "Scenario - Office", "Class - A", "Max Score - 100", testClass1.totalScoreVal, testClass1.dateTime);
+                AddScenarioDetails(document, "Scenario - Office", "Class - A", "Max Score - 100", testClass1.totalScoreVal,testClass1.dateTime);
 
                 makeTable(document, score);
 
@@ -373,7 +373,7 @@ public class PrintingManager_Final : MonoBehaviour
                     };
 
 
-                AddScenarioDetails(document, "Scenario - WareHouse", "Class - C", "Max Score - 100", testClass1.totalScoreVal, testClass1.dateTime);
+                AddScenarioDetails(document, "Scenario - WareHouse", "Class - C", "Max Score - 100", testClass1.totalScoreVal,testClass1.dateTime);
 
                 document.Add(spacing);
 
@@ -416,7 +416,7 @@ public class PrintingManager_Final : MonoBehaviour
 
 
 
-                AddScenarioDetails(document, "Scenario - WareHouse", "Class - C", "Max Score - 100", testClass1.totalScoreVal, testClass1.dateTime);
+                AddScenarioDetails(document, "Scenario - WareHouse", "Class - C", "Max Score - 100", testClass1.totalScoreVal,testClass1.dateTime);
 
                 document.Add(spacing);
 
@@ -460,7 +460,7 @@ public class PrintingManager_Final : MonoBehaviour
 
 
 
-                AddScenarioDetails(document, "Scenario - WareHouse", "Class - B", "Max Score - 100", testClass1.totalScoreVal, testClass1.dateTime);
+                AddScenarioDetails(document, "Scenario - WareHouse", "Class - B", "Max Score - 100", testClass1.totalScoreVal,testClass1.dateTime);
 
                 document.Add(spacing);
 
@@ -479,14 +479,14 @@ public class PrintingManager_Final : MonoBehaviour
 
             StartCoroutine( PrintFiles() );
 
-        void AddScenarioDetails(Document document, string scenario, string className, string maxScore, int obtainedScore , string date)
-        {
-            document.Add(new Paragraph(scenario));
-            document.Add(new Paragraph(className));
-            document.Add(new Paragraph(maxScore));
-            document.Add(new Paragraph("Obtained Score - " + obtainedScore));
-            document.Add(new Paragraph("Date and Time - " + date));
-        }
+        void AddScenarioDetails(Document document, string scenario, string className, string maxScore, int obtainedScore,string date)
+    {
+        document.Add(new Paragraph(scenario));
+        document.Add(new Paragraph(className));
+        document.Add(new Paragraph(maxScore));
+        document.Add(new Paragraph("Obtained Score - " + obtainedScore));
+        document.Add(new Paragraph("Date and Time - " + date));
+    }
 
         void makeTable(Document document,int[] i)
         {

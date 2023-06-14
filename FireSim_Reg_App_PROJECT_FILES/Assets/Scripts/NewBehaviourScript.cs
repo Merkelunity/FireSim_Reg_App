@@ -48,7 +48,7 @@ public class ClassA : BaseClass
     public new int sweepAngScoreVal= ReportGenerationScript.instance.IndustrialKitchen.sweepAngScoreVal;
     public new int MatRemainScoreVal= ReportGenerationScript.instance.IndustrialKitchen.MatRemainScoreVal;
     public new int totalScoreVal = ReportGenerationScript.instance.IndustrialKitchen.totalScoreVal;
-    public new string dateTime = ReportGenerationScript.instance.IndustrialKitchen.datetime;
+    public new string dateTime = ReportGenerationScript.instance.IndustrialKitchen.dateTime;
 }
 
 // Example class B
@@ -64,7 +64,7 @@ public class ClassB : BaseClass
     public new int sweepAngScoreVal = ReportGenerationScript.instance.LabMetal.sweepAngScoreVal;
     public new int MatRemainScoreVal = ReportGenerationScript.instance.LabMetal.MatRemainScoreVal;
     public new int totalScoreVal = ReportGenerationScript.instance.LabMetal.totalScoreVal;
-    public new string dateTime = ReportGenerationScript.instance.LabMetal.datetime;
+    public new string dateTime = ReportGenerationScript.instance.LabMetal.dateTime;
 }
 
 // Example class C
@@ -80,7 +80,7 @@ public class ClassC : BaseClass
     public new int sweepAngScoreVal = ReportGenerationScript.instance.OfficePaper.sweepAngScoreVal;
     public new int MatRemainScoreVal = ReportGenerationScript.instance.OfficePaper.MatRemainScoreVal;
     public new int totalScoreVal = ReportGenerationScript.instance.OfficePaper.totalScoreVal;
-    public new string dateTime = ReportGenerationScript.instance.OfficePaper.datetime;
+    public new string dateTime = ReportGenerationScript.instance.OfficePaper.dateTime;
 }
 
 public class ClassD : BaseClass
@@ -95,7 +95,7 @@ public class ClassD : BaseClass
     public new int sweepAngScoreVal = ReportGenerationScript.instance.OfficeElectric.sweepAngScoreVal;
     public new int MatRemainScoreVal = ReportGenerationScript.instance.OfficeElectric.MatRemainScoreVal;
     public new int totalScoreVal = ReportGenerationScript.instance.OfficeElectric.totalScoreVal;
-    public new string dateTime = ReportGenerationScript.instance.OfficeElectric.datetime;
+    public new string dateTime = ReportGenerationScript.instance.OfficeElectric.dateTime;
 }
 
 public class ClassE : BaseClass
@@ -110,7 +110,7 @@ public class ClassE : BaseClass
     public new int sweepAngScoreVal = ReportGenerationScript.instance.OfficeSofa.sweepAngScoreVal;
     public new int MatRemainScoreVal = ReportGenerationScript.instance.OfficeSofa.MatRemainScoreVal;
     public new int totalScoreVal = ReportGenerationScript.instance.OfficeSofa.totalScoreVal;
-    public new string dateTime = ReportGenerationScript.instance.OfficeSofa.datetime;
+    public new string dateTime = ReportGenerationScript.instance.OfficeSofa.dateTime;
 }
 public class ClassF : BaseClass
 {
@@ -125,7 +125,7 @@ public class ClassF : BaseClass
     public new int sweepAngScoreVal = ReportGenerationScript.instance.WarehouseElectric.sweepAngScoreVal;
     public new int MatRemainScoreVal = ReportGenerationScript.instance.WarehouseElectric.MatRemainScoreVal;
     public new int totalScoreVal = ReportGenerationScript.instance.WarehouseElectric.totalScoreVal;
-    public new string dateTime = ReportGenerationScript.instance.WarehouseElectric.datetime;
+    public new string dateTime = ReportGenerationScript.instance.WarehouseElectric.dateTime;
 }
 public class ClassG : BaseClass
 {
@@ -139,7 +139,7 @@ public class ClassG : BaseClass
     public new int sweepAngScoreVal = ReportGenerationScript.instance.WarehouseWood.sweepAngScoreVal;
     public new int MatRemainScoreVal = ReportGenerationScript.instance.WarehouseWood.MatRemainScoreVal;
     public new int totalScoreVal = ReportGenerationScript.instance.WarehouseWood.totalScoreVal;
-    public new string dateTime = ReportGenerationScript.instance.WarehouseWood.datetime;
+    public new string dateTime = ReportGenerationScript.instance.WarehouseWood.dateTime;
 }
 public class ClassH : BaseClass
 {
@@ -154,5 +154,5 @@ public class ClassH : BaseClass
     public new int sweepAngScoreVal = ReportGenerationScript.instance.WarehouseOil.sweepAngScoreVal;
     public new int MatRemainScoreVal = ReportGenerationScript.instance.WarehouseOil.MatRemainScoreVal;
     public new int totalScoreVal = ReportGenerationScript.instance.WarehouseOil.totalScoreVal;
-    public new string dateTime = ReportGenerationScript.instance.WarehouseOil.datetime;
+    public new string dateTime = ReportGenerationScript.instance.WarehouseOil.dateTime;
 }

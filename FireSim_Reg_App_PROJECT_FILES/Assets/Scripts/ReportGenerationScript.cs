@@ -418,7 +418,7 @@ public class ScenarioBase
     public int sweepAngScoreVal;
     public int MatRemainScoreVal;
     public int totalScoreVal;
-    public string datetime;
+    public string dateTime;
 }
 
 [System.Serializable]
