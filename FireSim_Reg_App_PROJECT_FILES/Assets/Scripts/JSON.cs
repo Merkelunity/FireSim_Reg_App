@@ -5,7 +5,7 @@ public class JSON : MonoBehaviour
 {
     Userdata userdata;
     string path;
-    public TextMeshProUGUI dispText;
+    //public TextMeshProUGUI dispText;
     private void Start()
     {
         path = Application.persistentDataPath + "/jsontest.txt";
@@ -37,7 +37,7 @@ public class JSON : MonoBehaviour
         string h = File.ReadAllText(Application.persistentDataPath + "/jsontest.txt");
         Userdata g = JsonUtility.FromJson<Userdata>(h);
 
-        dispText.text = g.name;
+        //dispText.text = g.name;
         
         /*Debug.Log(g.k);
         Debug.Log(g.test);

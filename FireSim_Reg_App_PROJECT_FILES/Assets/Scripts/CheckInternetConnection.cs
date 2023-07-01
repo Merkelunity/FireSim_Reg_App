@@ -3,6 +3,7 @@ using DG.Tweening;
 
 public class CheckInternetConnection : MonoBehaviour
 {
+    //the gameobject named PANEL in the hierarchy
     public GameObject panel;
     [Header("ALERT PANELS")]
     public GameObject intconnPanel;

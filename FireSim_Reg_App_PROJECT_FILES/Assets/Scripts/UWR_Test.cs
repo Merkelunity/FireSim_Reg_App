@@ -6,30 +6,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using Newtonsoft.Json;
 public class UWR_Test : MonoBehaviour
 {
     public string url = "https://drive.google.com/uc?export=download&id=1LR_qk3o4G-4yLntKzzTKc36cj_IcseVX";
-    //public string extractToPath;
+
     public RawImage rawImage;
-
-    //DownloadHandlerFile file;
-
-    //void Awake()
-    //{
-    //    string file = Path.Combine(Application.dataPath,"myfile.zip");
-    //    if(!File.Exists(file))
-    //    {
-    //        File.Create(file);
-    //        Debug.Log("file created");
-    //    }
-    //}
+    public test test;
 
     void Start()
     {
-
-        StartCoroutine(downloadImageFromURL(url,rawImage));
-
+        StartCoroutine(downlaodJson());
     }
+    IEnumerator downlaodJson()
+    {
+        UnityWebRequest req = UnityWebRequest.Get(url);
+        yield return req.SendWebRequest();
+
+        if(req.result == UnityWebRequest.Result.ProtocolError || req.result == UnityWebRequest.Result.ConnectionError)
+        {
+            Debug.Log(UnityWebRequest.Result.ConnectionError);
+            Debug.Log(UnityWebRequest.Result.ProtocolError);
+        }
+        else
+        {
+            var text = req.downloadHandler.text;
+
+            test = JsonUtility.FromJson<test>(text);
+        }
+    }
+
     IEnumerator downloadImageFromURL(string URL , RawImage RAWIMAGE)
     {
         UnityWebRequest request = UnityWebRequestTexture.GetTexture(URL);
@@ -46,28 +52,36 @@ public class UWR_Test : MonoBehaviour
             RAWIMAGE.texture = texture;
         }
     }
-    //public void ExtractZipFile(string zipFilePath, string extractPath)
-    //{
-    //    // Open the zip file
-    //    using (ZipArchive archive = ZipFile.OpenRead(zipFilePath))
-    //    {
-    //        // Extract each entry in the zip file
-    //        foreach (ZipArchiveEntry entry in archive.Entries)
-    //        {
-    //            string extractFilePath = Path.Combine(extractPath, entry.FullName);
-                
-    //            // If the entry is a directory, create it
-    //            if (entry.FullName.EndsWith("/") || entry.FullName.EndsWith("\\"))
-    //            {
-    //                Directory.CreateDirectory(extractFilePath);
-    //                continue;
-    //            }
-                
-    //            // Extract the entry to the extract path
-    //            entry.ExtractToFile(extractFilePath, true);
 
-    //        }
-    //        Debug.Log("files extracted to D:\\Dhinesh\\Firesim_Login_project successfully");
-    //    }
-    //}
+    public void ExtractZipFile(string zipFilePath, string extractPath)
+    {
+        // Open the zip file
+        using (ZipArchive archive = ZipFile.OpenRead(zipFilePath))
+        {
+            // Extract each entry in the zip file
+            foreach (ZipArchiveEntry entry in archive.Entries)
+            {
+                string extractFilePath = Path.Combine(extractPath, entry.FullName);
+
+                // If the entry is a directory, create it
+                if (entry.FullName.EndsWith("/") || entry.FullName.EndsWith("\\"))
+                {
+                    Directory.CreateDirectory(extractFilePath);
+                    continue;
+                }
+
+                // Extract the entry to the extract path
+                entry.ExtractToFile(extractFilePath, true);
+
+            }
+            Debug.Log("files extracted to D:\\Dhinesh\\Firesim_Login_project successfully");
+        }
+    }
+}
+
+[System.Serializable]
+public class test
+{
+    public double version;
+    public string text;
 }

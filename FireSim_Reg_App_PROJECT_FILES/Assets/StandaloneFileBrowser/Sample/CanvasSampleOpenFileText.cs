@@ -20,7 +20,7 @@ public class CanvasSampleOpenFileText : MonoBehaviour, IPointerDownHandler {
 
     public static CanvasSampleOpenFileText instance;
     public Slider Reg_slider;
-    //public TextMeshProUGUI debug_Text;
+    public TextMeshProUGUI debug_Text;
     //string filename;
 
     public int numberOfNewRegister;
@@ -130,7 +130,7 @@ public class CanvasSampleOpenFileText : MonoBehaviour, IPointerDownHandler {
 
 
             numberOfNewRegister++;
-            //Debug.Log(numberOfNewRegister);
+            debug_Text.text = numberOfNewRegister.ToString();
             //Reg_slider.maxValue = numberOfNewRegister-1;
 
         }
