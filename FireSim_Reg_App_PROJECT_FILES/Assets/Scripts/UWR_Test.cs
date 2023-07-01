@@ -12,29 +12,13 @@ public class UWR_Test : MonoBehaviour
     public string url = "https://drive.google.com/uc?export=download&id=1LR_qk3o4G-4yLntKzzTKc36cj_IcseVX";
 
     public RawImage rawImage;
-    public test test;
+
 
     void Start()
     {
-        StartCoroutine(downlaodJson());
-    }
-    IEnumerator downlaodJson()
-    {
-        UnityWebRequest req = UnityWebRequest.Get(url);
-        yield return req.SendWebRequest();
 
-        if(req.result == UnityWebRequest.Result.ProtocolError || req.result == UnityWebRequest.Result.ConnectionError)
-        {
-            Debug.Log(UnityWebRequest.Result.ConnectionError);
-            Debug.Log(UnityWebRequest.Result.ProtocolError);
-        }
-        else
-        {
-            var text = req.downloadHandler.text;
-
-            test = JsonUtility.FromJson<test>(text);
-        }
     }
+
 
     IEnumerator downloadImageFromURL(string URL , RawImage RAWIMAGE)
     {
@@ -79,9 +63,4 @@ public class UWR_Test : MonoBehaviour
     }
 }
 
-[System.Serializable]
-public class test
-{
-    public double version;
-    public string text;
-}
+

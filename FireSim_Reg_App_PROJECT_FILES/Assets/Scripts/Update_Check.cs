@@ -15,47 +15,43 @@ public class Update_Check : MonoBehaviour
     private int Current_Ver;
     private string PatchURL;
 
+    public myVersionData myVersionData;
     // Start is called before the first frame update
     void Start()
     {
         PlayerPrefs.SetInt("Version", Set_Version);
         Current_Ver = PlayerPrefs.GetInt("Version", 10);
-        StartCoroutine(GetRequest(URL));
+        StartCoroutine(downlaodJson());
         VersionTXT.text = "version: " + Current_Ver;
         Download_Button.SetActive(false);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
-
-    IEnumerator GetRequest(string url)
+    IEnumerator downlaodJson()
     {
-        using (UnityWebRequest webRequest = UnityWebRequest.Get(url))
+        UnityWebRequest req = UnityWebRequest.Get(URL);
+        yield return req.SendWebRequest();
+
+        if (req.result == UnityWebRequest.Result.ProtocolError || req.result == UnityWebRequest.Result.ConnectionError)
         {
-            yield return webRequest.SendWebRequest();
+            Debug.Log(UnityWebRequest.Result.ConnectionError);
+            Debug.Log(UnityWebRequest.Result.ProtocolError);
+        }
+        else
+        {
+            var text = req.downloadHandler.text;
 
-            if(webRequest.result == UnityWebRequest.Result.ConnectionError)
+            myVersionData = JsonUtility.FromJson<myVersionData>(text);
+
+            if (myVersionData.version > Current_Ver)
             {
-                update_text.text = "Error :" + webRequest.error;
+                update_text.text = "Update Required!";
+                Download_Button.SetActive(true);
+                PatchURL = myVersionData.url;
             }
+
             else
             {
-                string File_Data = webRequest.downloadHandler.text;
-                string[] TextArr = File_Data.Split('@');
-                string Update_ver = TextArr[0];
-                if(int.Parse(Update_ver) > Current_Ver)
-                {                   
-                    update_text.text = "Update Required!";
-                    Download_Button.SetActive(true);
-                    PatchURL = TextArr[1];
-                }
-                else
-                {
-                    update_text.text = "You are up to date!";
-                }
+                update_text.text = "You are up to date!";
             }
         }
     }
@@ -64,4 +60,11 @@ public class Update_Check : MonoBehaviour
     {
         Application.OpenURL(PatchURL);
     }
+
+}
+[System.Serializable]
+public class myVersionData
+{
+    public int version;
+    public string url;
 }
