@@ -6,10 +6,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using SFB;
-
 using TMPro;
 using System.IO;
-
+using UnityEngine.UI.TableUI;
 
 [RequireComponent(typeof(Button))]
 public class CanvasSampleOpenFileText : MonoBehaviour, IPointerDownHandler {
@@ -32,6 +31,9 @@ public class CanvasSampleOpenFileText : MonoBehaviour, IPointerDownHandler {
     public List<string> emailAddress;
     public List<string> trainerName;
     //public TextMeshProUGUI text;
+
+    public TableUI table;
+    int colCount;
 
 
 
@@ -62,12 +64,39 @@ public class CanvasSampleOpenFileText : MonoBehaviour, IPointerDownHandler {
     private void Awake()
     {
         instance = this;
-      
+        //table
+        table.Rows = 1;
+        table.Columns = 6;
+        //table.GetCell(0, 0).text = "Emp ID";
+        //table.GetCell(0, 1).text = "Name";
+        //table.GetCell(0, 2).text = "Mobile Number";
+        //table.GetCell(0, 3).text = "Email Address";
+        //table.GetCell(0, 4).text = "Company Name";
+        //table.GetCell(0, 5).text = "Trainer Name";
+        string[] row1 =
+            {
+                "Emp ID",
+                "Name",
+                "Mobile Number",
+                "Email Address",
+                "Company Name",
+                "Trainer Name"
+            };
+        fillRow(0,0, row1);
+    }
+
+    public void fillRow(int row,int col , string[] data)
+    {
+        for (int i = 0; i < table.Columns; i++)
+        {
+            table.GetCell(col, i).text = data[i];
+        }
     }
 
     void Start() {
         var button = GetComponent<Button>();
         button.onClick.AddListener(OnClick);
+        colCount = 0;
     }
 
     public void OnClick() 
@@ -130,10 +159,24 @@ public class CanvasSampleOpenFileText : MonoBehaviour, IPointerDownHandler {
 
 
             numberOfNewRegister++;
+            //table
             debug_Text.text = numberOfNewRegister.ToString();
             //Reg_slider.maxValue = numberOfNewRegister-1;
 
         }
+        //table
+        table.Rows = numberOfNewRegister+1;
+        for(int i = 0; i < numberOfNewRegister; i++)
+        {
+            colCount++;
+            table.GetCell(colCount, 0).text = empID[colCount-1];
+            table.GetCell(colCount, 1).text = empName[colCount-1];
+            table.GetCell(colCount, 2).text = mobileNumber[colCount-1].ToString();
+            table.GetCell(colCount, 3).text = emailAddress[colCount-1];
+            table.GetCell(colCount, 4).text = OrgName[colCount-1];
+            table.GetCell(colCount, 5).text = trainerName[colCount-1];
+        }
+
 
     }
     #endregion

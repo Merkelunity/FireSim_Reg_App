@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
   m_Name: RemoteConfigDataStoreAsset
   m_EditorClassIdentifier: 
-  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"561bb553-4c21-4be1-a126-d7a65a6da0dc\"\r\n   
+  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"cd239037-1e91-49e9-866b-bf1952365d3c\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"TestBool\",\r\n      \"type\": \"bool\",\r\n     
     \"value\": true\r\n    }\r\n  }\r\n]"
-  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"561bb553-4c21-4be1-a126-d7a65a6da0dc\"\r\n   
+  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"cd239037-1e91-49e9-866b-bf1952365d3c\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"TestBool\",\r\n      \"type\": \"bool\",\r\n     
     \"value\": true\r\n    }\r\n  }\r\n]"
   _environments: "[\r\n  {\r\n    \"projectId\": \"60c33e70-cf3c-4eac-a53a-ecd4b55e0509\",\r\n   
