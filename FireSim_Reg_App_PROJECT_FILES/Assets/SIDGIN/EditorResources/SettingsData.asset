@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: -265724180, guid: 805a65cc49f0cf942b9a711cb48efab1, type: 3}
   m_Name: SettingsData
   m_EditorClassIdentifier: 
-  selectedDefinition: 
+  selectedDefinition: FireSim
   selectedStorageModule: Google
   offlineMode: 0
   zipCompressLevel: 9
-  definitions: []
+  definitions:
+  - name: FireSim
+    storageName: Google
+    toDeleteFromCacheVersion: 
+    versionsFileId: 14OE_D7riUFJ33nXWFSjw6UeZ5KXkAAOl
   patchTask:
     needPatch: 0
     version: 
